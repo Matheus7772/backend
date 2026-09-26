@@ -1,0 +1,60 @@
+package br.com.senai.teste.model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity 
+@Table(name = "emprestimo")
+public class Emprestimo {
+
+    @Id 
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private LocalDate dataEmprestimo;
+
+    @ManyToOne 
+    @JoinColumn(name = "aluno_id", nullable = false)
+    private Livros livro;
+
+
+    public Emprestimo() {
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+
+    public Livros getLivro() {
+        return livro;
+    }
+
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+
+    public void setLivro(Livros livro) {
+        this.livro = livro;
+    }
+
+    
+    
+    
+    
+}
